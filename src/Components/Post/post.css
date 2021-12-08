@@ -1,0 +1,30 @@
+.card {
+    height: 44rem;
+}
+.card__container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.card__image {
+    height: 100%;
+    width: 100%;
+}
+.card__title {
+    color: var(--colorWhite);
+    position: absolute;
+    font-size: 3rem;
+    left: 2rem;
+    bottom: 2rem;
+    text-transform: capitalize;
+    width: 70%;
+    font-weight: 600;
+    transition: all ease .5s;
+}
+
+.card:hover .card__title {
+    transform: translateY(-3rem)
+}
+.posts:hover .card:not(:hover){
+    filter: blur(2px);
+}

@@ -1,23 +1,56 @@
-import logo from './logo.svg';
+import { useContext, useEffect, useRef } from "react";
+import AnimatedCursor from "react-animated-cursor"
 import './App.css';
+import AddPost from "./Components/AddPost/AddPost";
+import Header from './Components/Header/Header';
+import Posts from "./Components/Posts/Posts";
+import contentContext from "./context/contentContext";
+
 
 function App() {
+  let appRef = useRef()
+  const{content} = useContext(contentContext)
+
+  function changeBgPosition(e) {
+    let x = (  - window.innerWidth -  e.pageX  ) / 60
+    let y = ( window.innerHeight - e.pageY  ) / 60 
+  
+    appRef.current.style.backgroundPosition = `${x}px ${y}px`
+    appRef.current.style.transition = "all 0.6s ease"
+  }
+
+  useEffect(() => {
+    console.log('moutes')
+    },[content])
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="bg__overlay" ref={appRef} onMouseMove={changeBgPosition}></div>
+      <Header />
+      <div className="content__wraper"
+      >
+        
+        {
+          content === 'form' ? (
+              <AddPost />
+          ) : (
+              <Posts />
+          )
+        }
+     
+     
+      </div>
+      <div className="cursor">
+        <AnimatedCursor 
+          innerSize={0}
+          outerSize={1}
+          color='255,255,255'
+          outerAlpha={0.1}
+          innerScale={0}
+          outerScale={1.7}
+        />
+      </div>
     </div>
   );
 }

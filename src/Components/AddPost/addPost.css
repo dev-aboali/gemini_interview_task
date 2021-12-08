@@ -1,0 +1,50 @@
+.addPost {
+    margin-top: 18rem;
+}
+.form__group {
+    width: 100%;
+    margin: 3rem 0;
+}
+.form__group input {
+    width: 100%;
+    padding: 1.5rem 1.7rem;
+    border-radius: 5px;
+    font-size: 1.7rem;
+    outline: none;
+    font-weight: 600;
+    letter-spacing: .2rem;
+}
+
+.form__group label {
+    font-size: 1.5rem;
+    margin-left: 1.6rem;
+    margin-top: 10px;
+    color: #fff;
+    display: block;
+    font-weight: 600;
+    letter-spacing: .2rem;
+
+}
+
+.btn {
+    outline: none;
+    margin-top: 3rem;
+    border: none;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: var(--colorWhite);
+    border: 0.1rem solid var(--colorWhite);
+    background-color: transparent;
+    border-radius: 0.2rem;
+    padding: 1.2rem 4rem;
+    background-size: 250%;
+    background-image: linear-gradient(
+120deg,transparent,transparent 50%, var(--colorWhite) 0);
+    transition: all .8s cubic-bezier(.23,1,.32,1);
+}
+
+.btn:hover {
+    background-position: 100%;
+    color: var(--blackColor)!important;
+}
