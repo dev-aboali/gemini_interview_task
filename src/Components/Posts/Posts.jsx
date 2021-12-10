@@ -6,12 +6,15 @@ function Posts() {
     let [posts, setPosts] = useState([])
     let [perPage, setPerPage] = useState(9)
     let [skip, setSkip] = useState(0)
+    let [error, setError] = useState('')
    
     useEffect(() => {
          fetch(`https://interview-api.blockgemini.dev/posts/?skip=${skip}&limit=${perPage}`)
         .then(res => res.json())
         .then(data => {
             setPosts([...posts,...data.data])
+        }).catch(err => {
+            setError('Something went wrong, please try again later')
         })
     }, [skip, perPage])
  
@@ -25,6 +28,7 @@ function Posts() {
         
         <>
             <div className="posts animate__animated animate__fadeInRight">
+                { error && ( <div>{error}</div>)}
                 {posts?.map((post, i) => (
                         <motion.div
                             initial={{ opacity: 0, translateY: '50vh' }}
@@ -32,7 +36,7 @@ function Posts() {
                             transition={{ duration: 0.5, delay: i * 0.2 }}
                             className="post"
                         >
-                            <Post title={post.title} key={post.id} image={post.image} />
+                            <Post title={post.title} key={post.id} image={post.image} id={i}/>
                         </motion.div>
                 ))}
 

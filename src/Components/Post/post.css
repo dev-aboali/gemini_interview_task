@@ -21,7 +21,21 @@
     font-weight: 600;
     transition: all ease .5s;
 }
+.line {
+    border: 0.1rem solid hsla(0,0%,100%,.7);
+    position: absolute;
+}
 
+.line1 {
+    width: 96%;
+    height: 96%;
+    margin: 2%;
+}
+.line2 {
+    width: 94%;
+    height: 94%;
+    margin: 3%;
+}
 .card:hover .card__title {
     transform: translateY(-3rem)
 }
