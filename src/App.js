@@ -1,9 +1,11 @@
+import {AnimatePresence} from 'framer-motion/dist/framer-motion'
 import { useContext, useEffect, useRef } from "react";
 import AnimatedCursor from "react-animated-cursor"
 import './App.css';
 import AddPost from "./Components/AddPost/AddPost";
 import Header from './Components/Header/Header';
 import Posts from "./Components/Posts/Posts";
+import Transition from './Components/Transition/Transition';
 import contentContext from "./context/contentContext";
 
 
@@ -18,27 +20,26 @@ function App() {
     appRef.current.style.backgroundPosition = `${x}px ${y}px`
     appRef.current.style.transition = "all 0.6s ease"
   }
-
-  useEffect(() => {
-    console.log('moutes')
-    },[content])
- 
-
   return (
     <div className="App">
       <div className="bg__overlay" ref={appRef} onMouseMove={changeBgPosition}></div>
       <Header />
       <div className="content__wraper"
       >
+        <AnimatePresence>
         
         {
           content === 'form' ? (
+            <div className="animate__animated animate__fadeInRight">
               <AddPost />
+            </div>
           ) : (
+            <div className="animate__animated animate__fadeInLeft">
               <Posts />
+            </div>
           )
         }
-     
+      </AnimatePresence>
      
       </div>
       <div className="cursor">

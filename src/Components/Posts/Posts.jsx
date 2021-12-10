@@ -17,14 +17,14 @@ function Posts() {
  
    
     const addMorePosts = () => {
-        setPerPage(perPage => perPage * 2)
-        setSkip((skip) => skip + perPage)  
+        setSkip(perPage)  
+        setPerPage(perPage => perPage + perPage)
     }
    
     return (
         
         <>
-            <div className="posts">
+            <div className="posts animate__animated animate__fadeInRight">
                 {posts?.map((post, i) => (
                         <motion.div
                             initial={{ opacity: 0, translateY: '50vh' }}
