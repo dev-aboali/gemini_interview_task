@@ -12,6 +12,7 @@ function Header() {
         event.preventDefault()
         setContent(route)
         navMenu.current.classList.remove('open')
+        setOpen(isOpen => !isOpen)
     }
     const handleMenuClick = () => {
         navMenu.current.classList.toggle('open')
