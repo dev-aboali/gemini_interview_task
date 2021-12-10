@@ -36,6 +36,9 @@
     width: 50% !important;
 }
 .hamburger-react {
+    cursor: none !important;
+}
+.hamburger-react {
     position: relative;
 }
 .hamburger-react::after {

@@ -9,7 +9,7 @@ function Post({ title, image}) {
                     <img src={image} alt={title} className="card__image"/>
                     <div className="card__title">{title}</div>
                 </div>
-        </div>
+            </div>
         </Tilt>
     )
 }

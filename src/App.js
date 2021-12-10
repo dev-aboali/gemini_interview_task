@@ -1,11 +1,10 @@
 import {AnimatePresence} from 'framer-motion/dist/framer-motion'
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useRef } from "react";
 import AnimatedCursor from "react-animated-cursor"
 import './App.css';
 import AddPost from "./Components/AddPost/AddPost";
 import Header from './Components/Header/Header';
 import Posts from "./Components/Posts/Posts";
-import Transition from './Components/Transition/Transition';
 import contentContext from "./context/contentContext";
 
 
